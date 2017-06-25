@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>JobVita</title>
+	
+	<!--========================================
+	=            external libraries            =
+	=========================================-->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap-theme.css">
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	      
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+	
+	<!--====  End of external libraries  ====-->
+
+	<script src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	
+</head>
+
+<body>
+<div class="container-fluid" ng-app="jobApp" ng-controller="jobAppController" ng-init="fetchJobs()">
+	<h1 class="heading">JobVita</h1>
+    <div class="parallax"></div>
+
+	<div class="row" id="description">
+		<h1 class="heading">About Us</h1>
+		<div class="col-md-6 col-md-offset-3">
+		<p class="desc">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum faucibus erat odio, et dapibus mauris cursus in. Nulla ante arcu, semper ut quam eu, laoreet dapibus diam. Aliquam vel neque sodales, hendrerit nunc sed, ullamcorper turpis. Integer scelerisque eros eu pharetra dapibus.<br>
+			 Nam venenatis eget est sed scelerisque. Nam ornare nulla et commodo ornare. Donec ut faucibus purus. Mauris venenatis ullamcorper urna, sed bibendum risus accumsan eu.<br>
+
+			Cras eu massa in lorem tempus vehicula ac a mauris. Quisque eget fermentum lacus. Sed dapibus aliquam nunc, nec viverra dolor scelerisque dapibus. Quisque neque sem, hendrerit in porta sit amet, cursus non justo. Nullam molestie arcu ligula, non placerat mi maximus et. Mauris aliquet feugiat mi in euismod.<br>
+			 Pellentesque volutpat dui at feugiat aliquam. Praesent quis elit vulputate, sagittis justo a, rhoncus lectus. Ut vitae dignissim sem. <br>
+			 Integer sed malesuada elit. Donec tempus augue quis nunc egestas, eget iaculis justo dignissim. Nam a metus ipsum. Etiam rutrum porttitor ligula. Maecenas tortor nulla, hendrerit vitae egestas ut, euismod ac ante.<br>
+			  Mauris eu augue venenatis, scelerisque enim eget, blandit nisl. Ut posuere, urna eget aliquam fringilla, orci lorem facilisis ipsum, non consectetur nisi nibh vel ligula.<br>
+		</p>
+		</div>
+	</div>
+	
+
+	<div class="parallax"></div>
+
+
+	<h1 class="heading">Open Positions</h1>
+		<p class="desc"></p>
+	<div class="row" id="jobs">
+		<div ng-repeat="subElement in myArray track by $index" class="col-md-6 singleJob">			 
+			 <h4 class="">Job Title :{{subElement.title}}</h4>
+			 <h5 class="">Job ID :{{subElement.id}}</h5>
+			 <p class="">Job Description :{{subElement.desc}}</p>
+			 <p class="">Experience :{{subElement.exp}}</p>
+			 <a ng-href="#apply"  class="btn btn-primary" ng-click="setVal(subElement.title)">Apply</a>
+		</div>
+	</div>
+
+
+	<div class="parallax"></div>
+
+
+	<div class="row" id="apply">
+		<h2 class="heading">Apply for Jobs</h2>
+		<p class="desc"></p>
+		<div class="col-md-6 col-md-offset-3">
+			<form class="form-horizontal" method="POST" action="http://formspree.io/aviksingha8@gmail.com">
+				<fieldset>
+
+			
+				<legend style="text-align: center;">Fill out the form and press submit</legend>
+
+				
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="Fname">First Name</label>  
+				  <div class="col-md-4">
+				  <input id="Fname" name="Fname" type="text" placeholder="Your First Name" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+
+				
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="Lname">Last Name</label>  
+				  <div class="col-md-4">
+				  <input id="Lname" name="Lname" type="text" placeholder="Your Last Name" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+
+			
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="appliedPost">Post Applied For</label>  
+				  <div class="col-md-4">
+				  <input id="appliedPost" name="appliedPost" type="text" placeholder="" class="form-control input-md" ng-model="postApplied" disabled>
+				    
+				  </div>
+				</div>
+
+				
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="location">Geo Location</label>  
+				  <div class="col-md-4">
+				  <input id="location" name="location" ng-model="location" type="text" placeholder="" class="form-control input-md">			    
+				  </div>
+				</div>
+
+				
+				<!-- <div class="form-group">
+				  <label class="col-md-4 control-label" for="resume">Upload Resume</label>
+				  <div class="col-md-4">
+				    <input id="resume" name="resume" class="input-file" type="file">
+				  </div>
+				</div>
+ -->
+				
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="submit_btn"></label>
+				  <div class="col-md-4">
+				    <button id="submit_btn" name="submit_btn" class="btn btn-primary">Submit</button>
+				  </div>
+				</div>
+
+				</fieldset>
+				</form>
+
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

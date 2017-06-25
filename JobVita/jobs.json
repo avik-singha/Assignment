@@ -1,0 +1,34 @@
+jobs:
+
+[
+	{
+		id:'1',
+		title:'sd',
+		desc:'aaabbb',
+		exp:'fresher'
+	};
+	
+]
+
+
+[{
+  "id": 1,
+  "title": "Development",
+  "desc": "gfydhj",
+  "exp": "4 years"
+}, {
+  "id": 2,
+  "title": "Testing",
+  "desc": "ghgjjhk",
+  "exp": "Fresher"
+}, {
+  "id": 3,
+  "title": "App-development",
+  "desc": "hrisknkhktaeas",
+  "exp": "2 years"
+}, {
+  "id": 4,
+  "title": "Analytics",
+  "desc": "acjfjdvjdres",
+  "exp": "10 years"
+}]
