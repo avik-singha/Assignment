@@ -13,8 +13,8 @@
 	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
 	      
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    
-	
+    <script src="https://rawgit.com/grevory/angular-local-storage/master/dist/angular-local-storage.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=	AIzaSyBFV1jPbVosnOx-plx9qokRo75aG0JAFBA&libraries=places"></script>
 	<!--====  End of external libraries  ====-->
 
 	<script src="app.js"></script>
@@ -67,7 +67,7 @@
 		<h2 class="heading">Apply for Jobs</h2>
 		<p class="desc"></p>
 		<div class="col-md-6 col-md-offset-3">
-			<form class="form-horizontal" method="POST" action="http://formspree.io/aviksingha8@gmail.com">
+			<form class="form-horizontal">
 				<fieldset>
 
 			
@@ -77,7 +77,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="Fname">First Name</label>  
 				  <div class="col-md-4">
-				  <input id="Fname" name="Fname" type="text" placeholder="Your First Name" class="form-control input-md" required="">
+				  <input id="Fname" name="FnameBox" type="text" placeholder="Your First Name" class="form-control input-md" required="">
 				    
 				  </div>
 				</div>
@@ -86,7 +86,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="Lname">Last Name</label>  
 				  <div class="col-md-4">
-				  <input id="Lname" name="Lname" type="text" placeholder="Your Last Name" class="form-control input-md" required="">
+				  <input id="Lname" name="LnameBox" type="text" placeholder="Your Last Name" class="form-control input-md" required="">
 				    
 				  </div>
 				</div>
@@ -95,16 +95,16 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="appliedPost">Post Applied For</label>  
 				  <div class="col-md-4">
-				  <input id="appliedPost" name="appliedPost" type="text" placeholder="" class="form-control input-md" ng-model="postApplied" disabled>
+				  <input id="appliedPost" name="appliedPostBox" type="text" placeholder="" class="form-control input-md" ng-model="postApplied" disabled>
 				    
 				  </div>
 				</div>
 
 				
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="location">Geo Location</label>  
+				  <label class="col-md-4 control-label" for="locationBox">Geo Location</label>  
 				  <div class="col-md-4">
-				  <input id="location" name="location" ng-model="location" type="text" placeholder="" class="form-control input-md">			    
+				  <input id="locationBox" name="locationBoxHolder" ng-model="location" type="text" placeholder="" required="" class="form-control input-md" ng-click="getPlace()">			    
 				  </div>
 				</div>
 
@@ -120,7 +120,8 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="submit_btn"></label>
 				  <div class="col-md-4">
-				    <button id="submit_btn" name="submit_btn" class="btn btn-primary">Submit</button>
+				    <button id="submit_btn" name="submit_btn" class="btn btn-primary" ng-click="submitData()">Submit</button>
+				    <a ng-href="admin.html" target="_blank" class="btn btn-primary">Admin Login</a>
 				  </div>
 				</div>
 

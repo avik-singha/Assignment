@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>JobVita Admin</title>
+	
+	<!--========================================
+	=            external libraries            =
+	=========================================-->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap-theme.css">
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>	      
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <script src="https://rawgit.com/grevory/angular-local-storage/master/dist/angular-local-storage.min.js"></script>
+	<!--====  End of external libraries  ====-->
+
+	<script src="admin.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	
+</head>
+<body ng-app="adminApp" ng-controller="adminAppController">
+<div class="container">
+  <h2>Admin Panel</h2>
+  <p>List of candidates who applied for jobs.</p>
+  <a class="btn btn-primary" ng-click="checkAdmin()">View Profile</a>  
+  <p id="demo" ng-hide="txt==null" style="color: red">You are not Admin</p>      
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Post Applied For</th>
+        <th>Geo-Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td ng-repeat="c in ca track by $index">{{c}}</td>        
+      </tr>      
+    </tbody>
+  </table>
+
+</div>
+
+
+</body>
+</html>
